@@ -24,8 +24,9 @@
 # along with this program.  
 # If not, see https://www.gnu.org/licenses/
 
-import time, sys, game.ver
+import time, sys
 from game import Handler as gameClass
+from game.functions import PreSpawn
 from game.utils.colorama import initialise as color
 from traceback import format_exception
 
@@ -34,8 +35,9 @@ travis = False
 if(len(sys.argv) >= 2 and sys.argv[1] == "--travis-mode"):
     travis = True
 
-color.init()
 game = gameClass.handler(travis)
+
+PreSpawn.run(game)
 
 del travis
 
@@ -48,7 +50,7 @@ if(game.travis):
 
 time.sleep(2)
 
-game.logger.log("Game loading...", 1)
+game.logger.log("\033[32mGame Loading...\033[39m", 1)
 
 #Spawn main
 

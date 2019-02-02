@@ -25,14 +25,16 @@
 # If not, see https://www.gnu.org/licenses/
 
 from game import ver
-from game.utils import logger
-import platform
+from game.utils import Logger, SimpleFileSystem
+import platform, time
 
 class handler:
 
     def __init__(self, Travis):
         self.travis = Travis
-        self.logger = logger.logger(self)
+        self.logger = Logger.logger(self)
         self.build = ver
         self.os = platform.uname()
-        #SFS (Simple File System) (after 1.0)
+        self.sfs = SimpleFileSystem.sfs(self) # (Simple File System), Work In Progress.
+
+        self.startTime = time.time() # Left with decimals for precision.

@@ -50,6 +50,22 @@ if(game.travis):
 
 time.sleep(2)
 
+print("\n\n------\n\n")
+
+print(game.sfs.createFile(".gitignore"))
+print(game.sfs.dirExists("./"))
+print(game.sfs.dirExists("./daa"))
+print(game.sfs.dirExists("./data/"))
+print(game.sfs.dirExists("build.cmd"))
+print(game.sfs.dirExists("data/"))
+
+print(game.sfs.getCWD())
+
+print("\n\n------\n\n")
+
+
+time.sleep(2)
+
 game.logger.log("\033[32mGame Loading...\033[39m", 1)
 
 #Spawn main

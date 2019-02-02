@@ -50,7 +50,8 @@ def logMsg(msg, game, lvl = 5):
     msg = str(msg)
     if(lvl < 4):
         sav(msg, lvl)
-    if(lvl == 0):
+    if(lvl == 0 and game.travis):
+        sys.stdout.write('[DEBUG] : '+msg+'\n')
         return
     elif(lvl == 1):
         #log/output

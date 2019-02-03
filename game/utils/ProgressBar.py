@@ -24,24 +24,20 @@
 # along with this program.  
 # If not, see https://www.gnu.org/licenses/
 
+import time
 import sys
 
-def http():
-    return '001_dev' #_rel/_dev
+toolbar_width = 25
 
-def ver():
-    return '0.0.1'
+# setup toolbar
+sys.stdout.write("[%s]" % (" " * toolbar_width))
+sys.stdout.flush()
+sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
 
-def build():
-    return '0007'
+for i in range(toolbar_width):
+    time.sleep(0.1) # do real work here
+    # update the bar
+    sys.stdout.write("█")
+    sys.stdout.flush()
 
-def codeName():
-    return 'ALPHA'
-
-def release():
-    return False
-
-def bundled():
-    if (getattr(sys, 'frozen', False) and (sys.argv[0] == sys.executable)):
-        return True
-    return False
+sys.stdout.write("\n")
